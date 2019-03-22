@@ -1,7 +1,4 @@
-import {
-  useState,
-  useEffect
-} from 'react';
+import { useState, useEffect } from 'react';
 
 export const useFetch = (url, initialValue) => {
   const [result, setResult] = useState(initialValue);
@@ -12,4 +9,19 @@ export const useFetch = (url, initialValue) => {
       .then(json => setResult(json));
   }, []);
   return result;
+};
+
+export const useDynamicTransition = ({ increment, delay, length }) => {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex(storedIndex => {
+        return (storedIndex + increment) % length;
+      });
+    }, delay);
+    return () => clearInterval(interval);
+  }, [delay, increment]);
+
+  return index;
 };

@@ -22,5 +22,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "main": "index.js",
+  "repository": "https://github.com/raungreen/Home.git",
+  "author": "RaunG <raung@icloud.com>",
+  "license": "MIT"
 }
